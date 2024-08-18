@@ -27,3 +27,5 @@ print(classification_report(y_test, y_pred, target_names=['Clase 0', 'Clase 1'])
 # Mostrar la matriz de confusión
 print("Matriz de Confusión con umbral ajustado a 0.4:")
 print(confusion_matrix(y_test, y_pred))
+
+

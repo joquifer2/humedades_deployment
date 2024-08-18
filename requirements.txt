@@ -1,0 +1,15 @@
+google-auth
+oauth2client
+pandas
+numpy
+seaborn
+streamlit
+opencv-python-headless
+scikit_learn
+joblib
+pillow
+pandas
+matplotlib
+streamlit_drawable_canvas
+opencv-python
+pydrive2
