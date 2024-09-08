@@ -58,6 +58,10 @@ if st.button('Realizar Predicción'):
     # Aplicar el preprocesamiento usando la función
     input_data_preprocessed = preprocesar_datos(input_data)
 
+    # Asegurarse de que las columnas coincidan con las que espera el modelo
+    if hasattr(model, 'feature_names_in_'):
+        input_data_preprocessed = input_data_preprocessed.reindex(columns=model.feature_names_in_, fill_value=0)
+
     # Realizar la predicción
     prediction = model.predict(input_data_preprocessed)
     prediction_proba = model.predict_proba(input_data_preprocessed)
@@ -65,6 +69,7 @@ if st.button('Realizar Predicción'):
     # Mostrar el resultado de la predicción
     st.write(f'**Predicción:** {"Cerrado Ganado" if prediction[0] == 1 else "No Cerrado"}')
     st.write(f'**Probabilidad de Cerrado Ganado:** {prediction_proba[0][1]:.2f}')
+
 
 
 
