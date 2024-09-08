@@ -49,7 +49,8 @@ tipo_problema = st.selectbox('Tipo de Problema', ['Capilaridad', 'Filtración', 
 input_data = pd.DataFrame({
     'chanel': [chanel],
     'ubicacion_geografica': [ubicacion_geografica],
-    'tipo_problema': [tipo_problema]
+    'tipo_problema': [tipo_problema],
+    'visitas_realizadas': [0]  # Agregar una columna dummy ya que no queremos que afecte la predicción
 })
 
 # Botón para ejecutar la predicción
@@ -76,6 +77,8 @@ if st.button('Realizar Predicción'):
     # Mostrar el resultado de la predicción
     st.write(f'**Predicción:** {"Cerrado Ganado" if prediction[0] == 1 else "No Cerrado"}')
     st.write(f'**Probabilidad de Cerrado Ganado:** {prediction_proba[0][1]:.2f}')
+
+
 
 
 
