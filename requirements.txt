@@ -8,8 +8,8 @@ opencv-python-headless
 scikit-learn==1.3.2
 joblib
 pillow
-pandas
 matplotlib
 streamlit_drawable_canvas
 opencv-python
 pydrive2
+
