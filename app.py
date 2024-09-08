@@ -63,7 +63,9 @@ if st.button('Realizar Predicción'):
     prediction_proba = model.predict_proba(input_data_preprocessed)
 
     # Mostrar el resultado de la predicción
-    st.write(f'**Predicció
+    st.write(f'**Predicción:** {"Cerrado Ganado" if prediction[0] == 1 else "No Cerrado"}')
+    st.write(f'**Probabilidad de Cerrado Ganado:** {prediction_proba[0][1]:.2f}')
+
 
 
 
