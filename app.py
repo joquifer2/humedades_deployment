@@ -3,20 +3,20 @@ import joblib
 import pandas as pd
 
 # Definir la función de preprocesamiento
-def preprocesar_datos(df_humedades):
-    df_humedades['chanel'] = df_humedades['chanel'].map({
+def preprocesar_datos(df_humedades_filtered):
+    df_humedades_filtered['chanel'] = df_humedades_filtered['chanel'].map({
         'Landing Search': 0, 'Meta Ads': 1, 'Habitissimo': 2, 'Landing-display': 3
     }).astype('Int64')
 
-    df_humedades['ubicacion_geografica'] = df_humedades['ubicacion_geografica'].map({
-        'Comunidad de Madrid': 0, 'Barcelona': 1, 'Tarragona': 2, 'Girona': 3, 'Lleida': 4
+    df_humedades_filtered['ubicacion_geografica'] = df_humedades_filtered['ubicacion_geografica'].map({
+    'Comunidad de Madrid': 0, 'Barcelona': 1, 'Tarragona': 2, 'Girona': 3, 'Lleida': 4, 'Resto de provincias de España': 5
     }).astype('Int64')
 
-    df_humedades['tipo_problema'] = df_humedades['tipo_problema'].map({
+    df_humedades_filtered['tipo_problema'] = df_humedades_filtered['tipo_problema'].map({
        'Capilaridad': 1, 'Filtración': 2, 'Condensación': 3
     }).astype('Int64')
 
-    return df_humedades
+    return df_humedades_filtered
 
 # Cargar el modelo entrenado
 model = joblib.load('rf_humedad_model.pkl')
