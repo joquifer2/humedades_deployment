@@ -34,8 +34,7 @@ st.sidebar.info(
     
     1. Selecciona el **Canal de origen** a través del cual se ha generado el cliente.
     2. Elige la **Ubicación Geográfica** donde se encuentra la propiedad afectada.
-    3. Indica el número de **Visitas Realizadas**.
-    4. Selecciona el **Tipo de Problema** de humedad.
+    3. Selecciona el **Tipo de Problema** de humedad.
     
     Luego, haz clic en el botón **Realizar Predicción** para ver si la oferta será "Cerrada Ganada" y la probabilidad asociada.
     """
@@ -44,14 +43,12 @@ st.sidebar.info(
 # Input del usuario para cada característica
 chanel = st.selectbox('Canal de origen', ['Landing Search', 'Meta Ads', 'Habitissimo', 'Landing-display'])
 ubicacion_geografica = st.selectbox('Ubicación Geográfica', ['Comunidad de Madrid', 'Barcelona', 'Tarragona', 'Girona', 'Lleida'])
-visitas_realizadas = st.number_input('Visitas Realizadas', min_value=0, max_value=10, value=0, step=1)
 tipo_problema = st.selectbox('Tipo de Problema', ['Capilaridad', 'Filtración', 'Condensación'])
 
 # Crear un DataFrame con los inputs del usuario
 input_data = pd.DataFrame({
     'chanel': [chanel],
     'ubicacion_geografica': [ubicacion_geografica],
-    'visitas_realizadas': [visitas_realizadas],
     'tipo_problema': [tipo_problema]
 })
 
