@@ -57,6 +57,18 @@ if st.button('Realizar Predicción'):
     # Aplicar el preprocesamiento usando la función
     input_data_preprocessed = preprocesar_datos(input_data)
 
+    # Mostrar las columnas preprocesadas para depurar
+    st.write("Columnas en input_data_preprocessed:", input_data_preprocessed.columns)
+
+    # Si el modelo tiene `feature_names_in_`, mostramos las características que espera
+    if hasattr(model, 'feature_names_in_'):
+        st.write("Nombres de características esperadas por el modelo:", model.feature_names_in_)
+
+    # Verificar si los nombres de las columnas coinciden con lo que el modelo espera
+    if hasattr(model, 'feature_names_in_') and list(input_data_preprocessed.columns) != list(model.feature_names_in_):
+        st.write("Advertencia: Los nombres de las columnas no coinciden con los esperados por el modelo.")
+        input_data_preprocessed.columns = model.feature_names_in_
+
     # Realizar la predicción
     prediction = model.predict(input_data_preprocessed)
     prediction_proba = model.predict_proba(input_data_preprocessed)
@@ -64,5 +76,6 @@ if st.button('Realizar Predicción'):
     # Mostrar el resultado de la predicción
     st.write(f'**Predicción:** {"Cerrado Ganado" if prediction[0] == 1 else "No Cerrado"}')
     st.write(f'**Probabilidad de Cerrado Ganado:** {prediction_proba[0][1]:.2f}')
+
 
 
