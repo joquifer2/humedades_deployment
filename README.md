@@ -6,3 +6,6 @@ Selecciona el Canal de origen a través del cual se ha generado el cliente.
 Elige la Ubicación Geográfica donde se encuentra la propiedad afectada.
 Selecciona el Tipo de Problema de humedad.
 Luego, haz clic en el botón Realizar Predicción para ver si la oferta será "Cerrada Ganada" y la probabilidad asociada.
+
+Puedes verlo aquí: https://humedades-prueba.streamlit.app/
+
