@@ -20,7 +20,7 @@ creds, _ = default()
 gc = gspread.authorize(creds)
 
 # Reemplaza con el ID correcto del documento de Google Sheets
-file_id = 'introducir el id_sheet'
+file_id = '1VoU01nkeAXRk3h6Eys2MPbHZXVx37smhJfY9x49OVAU'
 
 # Abre el documento de Google Sheets
 sheet = gc.open_by_key(file_id)
